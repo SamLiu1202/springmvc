@@ -1,0 +1,37 @@
+springmvc框架原理：
+  前端控制器，处理器映射器，处理器适配器, 视图解析器
+  springmvc入门程序
+    对前端控制器，处理器映射器，处理器适配器，视图解析器
+    非注解的处理器映射器：处理器适配器
+    注解的处理器映射器：处理器适配器
+  springmvc与mybatis整合
+  
+  springmvc注解开发
+    常用的注解学习
+    参数绑定：简单类型，pojo，集合类型
+    自定义参数绑定
+
+springmvc与structs的区别
+  springmvc是spring的一个模块，所以无需通过中间层整合。它是一个基于mvc的web框架。
+  mvc是一个设计模式，mvc在b/s系统下的应用。
+
+  1.用户发起request到dispatcherservlet
+  2.dispatcherservlet请求handlermapping查找handler
+  3.处理器映射器向dispatcherservlet返回handler
+  4.ds调用handleradaptor去执行handler
+  5.handeradapotor执行handler
+  6.handler执行完毕给适配器返回model & view
+  7.处理器适配器向ds返回model & view
+  8.ds请求视图解析器进行视图解析
+  9.视图解析器向ds返回view
+  10.ds进行视图渲染，将模型数据填充到request中
+  11.ds向用户response
+   
+    dispatcherservlet:接受请求，响应结果
+    handlermapping:根据url查找handler
+    handleradaptor:按照特定规则执行handler
+    handler: controller,开发的主要部分
+    view resolver:进行视图解析，根据逻辑试图名解析成真正的视图
+    view:一个接口，实现支持不同的视图
+
+  
