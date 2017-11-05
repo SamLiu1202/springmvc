@@ -1,0 +1,53 @@
+非注解handlermapping
+  eg:
+  <bean id = "itemsController" name = "/queryItems.action" class = "org.samlau.ssm.controller.ItemsController1"/>
+  <bean class = "org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+	<!--简单url映射器-->
+	<bean class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+			<prop key = "/queryItems1.action">itemsController</prop>
+			<prop key = "/queryItems2.action">itemsController</prop>
+			</props>
+		</property>
+	</bean>
+  多个handlermapping可以共存，dispatcherservlet判断url能让哪些映射器映射，就让正确的映射器处理。
+非注解handleradaptor
+  eg:
+  要求实现controller接口
+  <bean class = "org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+  要求实现httprequestHandler接口,使用此方法可以指定响应的返回格式。
+  <bean class = "org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/> 
+
+注解的映射器和适配器
+在spring 3.1之前使用映射器 org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping
+在spring 3.1之后使用映射器 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+3.1前适配器 org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter
+3.1后适配器 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter
+
+配置注解的映射器和适配器
+<!-- 使用驱动代替注解加载 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+开发注解handler
+  使用注解的映射器和注解的适配器（配对使用）
+      @Controller
+      public class ItemsController3 {
+        @RequestMapping("/queryItems")
+        public ModelAndView queryItems() throws Exception{
+
+          ModelAndView modelandview = new ModelAndView();
+
+          modelandview.addObject(attributeName, attributeValue);
+
+          modelandview.setViewName("/url");
+
+          return modelandview;
+
+        }
+      }
+ 在config中配置handler,可以使用组件扫描
+       <!-- 指定controller的包 -->
+       <context:component-scan base-package="org.samlau.ssm.controller"></context:component-scan>
+	
+      
+   
