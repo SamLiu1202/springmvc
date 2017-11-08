@@ -1,0 +1,22 @@
+springmvc与mybatis整合
+  需求：商品列表查询。
+  整合思路：表现层(spring mvc) 业务层(service接口) 持久层(mybatis) mysql。整个spring将各层进行整合，通过spring的
+  整合，管理持久层的mapper(相当于dao接口)，管理业务层的service，管理表现层的handler，而他们都是java bean。
+  spring通过管理业务层service，service中可以调用mapper接口。
+  spring进行事务控制。
+  spring通过管理表现层handler，handler可以调用service接口。
+  第一步，整合dao层：
+    mybatis和spring整合，通过spring管理mapper接口
+    使用mapper的扫描器自动扫描mapper接口在spring中进行注册。
+  第二部，整理service层：
+    通过spring管理service接口。
+    使用配置方式讲service接口配置在spring配置文件中
+    实现事务控制
+  第三部，整合springmvc
+    由于springmvc是spring的模块，不需要整合。
+  所需要的jar包:数据库驱动包，mybatis，mybatis和spring整合包，log4j包，dbcp，spring 3.2，jstl包。
+    
+    
+  
+  
+  
