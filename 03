@@ -29,7 +29,7 @@
 <!-- 使用驱动代替注解加载 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 开发注解handler
-  使用注解的映射器和注解的适配器（配对使用）
+  使用注解的映射器和注解的适配器（配对使用）,对标记@controller类中标有@requestmapping的方法进行映射。
       @Controller
       public class ItemsController3 {
         @RequestMapping("/queryItems")
