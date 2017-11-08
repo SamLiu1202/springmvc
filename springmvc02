@@ -34,7 +34,7 @@
             modelandview.addObject("items",new ArrayList<Integer>());
             //指定视图
             modelandview.setViewName("/WEB-INF/jsp/items/items.jsp");
-
+              
             return modelandview;
           }
     }
@@ -47,5 +47,5 @@
      
     配置view resolver(jsp)
     <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver" />
-    
+    可以通过<property name = "prefix" value = "">和<property name = "suffix" value = ".jsp">来配置jsp的前后缀
     
